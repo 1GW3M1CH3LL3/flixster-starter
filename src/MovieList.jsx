@@ -8,14 +8,15 @@ function MovieList(props) {
   }
   // console.log(props)
   const parsedData = parseMovieData(props.movies);
-  // console.log(parsedData);
+  console.log(parsedData);
   return (
     <div className="movie-list">
       {" "}
       {parsedData?.map((movie) => {
+        console.log(movie.title);
         return (
           <MovieCard
-            key={movie.title}
+            key={movie.id}
             poster={movie.poster}
             moviename={movie.title}
             rating={movie.rating}
