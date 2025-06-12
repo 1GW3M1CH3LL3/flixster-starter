@@ -1,12 +1,18 @@
 import { useState } from "react";
 
 function MovieCard(props) {
+  const [isLike, setIsLike] = useState(false);
   const modalObject = {
     poster: props.poster,
     title: props.moviename,
     overview: props.overview,
     date: props.date,
     genre: props.genre,
+  };
+  const like = (e) => {
+    e.stopPropagation();
+
+    setIsLike(!isLike);
   };
   const modalDisplay = () => {
     props.setIsClick(true);
@@ -24,6 +30,10 @@ function MovieCard(props) {
       />
       <p>{props.moviename}</p>
       <p>{props.rating}</p>
+      <i
+        onClick={like}
+        className={`fa-solid fa-heart ${isLike ? "like" : ""}`}
+      ></i>
     </div>
   );
 }

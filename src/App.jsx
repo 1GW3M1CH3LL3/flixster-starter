@@ -22,14 +22,27 @@ const App = () => {
   };
 
   const sortMovies = (option) => {
-    const movies = movieData;
+    const movies = [...movieData];
     if (option === "AZ") {
       console.log(option);
       movies.sort((a, b) => a.title.localeCompare(b.title));
-      console.log(movies);
+      // console.log(movies);
       setMovieData(movies);
-    } else {
-      console.log("in");
+      console.log(movieData);
+    } else if (option === "vote-highest") {
+      movies.sort((a, b) => b.vote_average - a.vote_average);
+      setMovieData(movies);
+      console.log(movieData);
+    } else if (option === "date") {
+      movies.sort(
+        (a, b) => new Date(b.release_date) - new Date(a.release_date)
+      );
+      setMovieData(movies);
+      console.log(movieData);
+    } else if (option === "vote-lowest") {
+      movies.sort((a, b) => a.vote_average - b.vote_average);
+      setMovieData(movies);
+      console.log(movieData);
     }
   };
   // const sort = document.getElementById("sort");

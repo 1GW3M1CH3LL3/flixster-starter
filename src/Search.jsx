@@ -36,7 +36,8 @@ function Search({ searchMovie, setMovieSearch, nowPlaying, sortMovies }) {
           <option value="">Sort By:</option>
           <option value="AZ">Alphabetical(A-Z)</option>
           <option value="date">Date Released</option>
-          <option value="vote">Vote</option>
+          <option value="vote-highest">Vote(Highest)</option>
+          <option value="vote-lowest">Vote(Lowest)</option>
         </select>
       </div>
     </div>
