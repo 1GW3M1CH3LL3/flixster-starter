@@ -15,6 +15,7 @@ function MovieCard(props) {
     overview: props.overview,
     date: props.date,
     genre: props.genre,
+    id: props.id,
   };
   const like = (e) => {
     e.stopPropagation();

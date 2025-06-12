@@ -17,8 +17,8 @@ const App = () => {
   const [isClick, setIsClick] = useState(false);
 
   const displayNowPlaying = () => {
-    console.log("you");
     setMovieData(now_playing);
+    // setMovieSearch("");
   };
 
   const sortMovies = (option) => {
@@ -66,10 +66,15 @@ const App = () => {
     console.log(fetchMovieSearch());
   };
   useEffect(() => {
-    fetchMovieSearch();
+    if (movieSearch === "") {
+      displayNowPlaying();
+    } else {
+      fetchMovieSearch();
+    }
   }, [movieSearch]);
   useEffect(() => {
     fetchMovieData();
+    // fetchTrailer(552524);
 
     //   async function fetchMovieData() {
     //   const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&query=${encodeURIComponent(searchInput)}`
@@ -90,6 +95,13 @@ const App = () => {
     setMovieData(data.results);
     console.log(data.results);
   }
+
+  const getTrailerkey = (trailerDetails) => {
+    for (let i of trailerDetails) {
+      console.log(i);
+      return i["key"];
+    }
+  };
   async function fetchMovieData() {
     const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=${pageNumber}`;
     const response = await fetch(url);
@@ -116,6 +128,7 @@ const App = () => {
         searchMovie={handleDataSubmit}
         setMovieSearch={setMovieSearch}
         sortMovies={sortMovies}
+        movieSearch={movieSearch}
       />
       {/* <Search
         nowPlaying={displayNowPlaying}

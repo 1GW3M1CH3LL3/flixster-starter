@@ -8,6 +8,7 @@ function Header(props) {
         searchMovie={props.searchMovie}
         setMovieSearch={props.setMovieSearch}
         sortMovies={props.sortMovies}
+        movieSearch={props.movieSearch}
       />
     </div>
   );

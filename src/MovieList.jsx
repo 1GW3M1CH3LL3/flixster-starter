@@ -18,7 +18,7 @@ function MovieList(props) {
           <MovieCard
             setIsClick={props.setIsClick}
             setModalMovie={props.setModalMovie}
-            key={movie.id}
+            id={movie.id}
             poster={movie.poster}
             moviename={movie.title}
             rating={movie.rating}

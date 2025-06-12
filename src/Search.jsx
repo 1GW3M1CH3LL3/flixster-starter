@@ -1,12 +1,22 @@
 import { useEffect } from "react";
 import { useState } from "react";
 
-function Search({ searchMovie, setMovieSearch, nowPlaying, sortMovies }) {
+function Search({
+  searchMovie,
+  setMovieSearch,
+  nowPlaying,
+  sortMovies,
+  movieSearch,
+}) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const submittedData = event.target.elements.movieInput.value;
     console.log(submittedData);
     setMovieSearch(submittedData);
+  };
+  const clear = (event) => {
+    // nowPlaying();
+    setMovieSearch("");
   };
   const [sortBy, setSortBy] = useState("");
   const sort = (e) => {
@@ -23,11 +33,17 @@ function Search({ searchMovie, setMovieSearch, nowPlaying, sortMovies }) {
     <div className="header">
       <div className="search">
         <form onSubmit={handleSubmit}>
-          <input name="movieInput" type="text" placeholder="Search"></input>
+          <input
+            name="movieInput"
+            type="text"
+            value={movieSearch}
+            placeholder="Search"
+            onChange={(e) => setMovieSearch(e.target.value)}
+          ></input>
           <button type="submit">Submit</button>
         </form>
-        <button onClick={nowPlaying} type="nowplaying">
-          Now Playing
+        <button onClick={clear} type="nowplaying">
+          Clear
         </button>
       </div>
 

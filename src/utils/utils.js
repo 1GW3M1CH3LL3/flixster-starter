@@ -33,6 +33,7 @@ const parseMovieData = (movieData) => {
       (id) => genres.filter((item) => item.id === id)[0].name + " "
     ),
     rating: data["vote_average"],
+    id: data["id"],
   }));
 };
 
