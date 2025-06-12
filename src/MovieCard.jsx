@@ -1,6 +1,21 @@
+import { useState } from "react";
+
 function MovieCard(props) {
+  const modalObject = {
+    poster: props.poster,
+    title: props.moviename,
+    overview: props.overview,
+    date: props.date,
+    genre: props.genre,
+  };
+  const modalDisplay = () => {
+    props.setIsClick(true);
+
+    props.setModalMovie(modalObject);
+  };
+
   return (
-    <div className="card">
+    <div onClick={modalDisplay} className="card">
       <img
         height="250px"
         width="200px"

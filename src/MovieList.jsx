@@ -16,10 +16,15 @@ function MovieList(props) {
         console.log(movie.title);
         return (
           <MovieCard
+            setIsClick={props.setIsClick}
+            setModalMovie={props.setModalMovie}
             key={movie.id}
             poster={movie.poster}
             moviename={movie.title}
             rating={movie.rating}
+            date={movie.release}
+            overview={movie.overview}
+            genre={movie.genre}
           />
         );
       })}

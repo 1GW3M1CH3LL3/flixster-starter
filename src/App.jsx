@@ -4,6 +4,7 @@ import MovieCard from "./MovieCard";
 import MovieList from "./MovieList";
 import Search from "./Search";
 import Modal from "./Modal";
+import Header from "./Header";
 
 const apiKey = import.meta.env.VITE_API_KEY;
 
@@ -12,6 +13,8 @@ const App = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const [movieSearch, setMovieSearch] = useState("");
   const [now_playing, setNow_playing] = useState([]);
+  const [modalMovie, setModalMovie] = useState({});
+  const [isClick, setIsClick] = useState(false);
 
   const displayNowPlaying = () => {
     setMovieData(now_playing);
@@ -66,14 +69,21 @@ const App = () => {
 
   return (
     <div className="App">
+      <Header />
       <Search
         nowPlaying={displayNowPlaying}
         searchMovie={handleDataSubmit}
         setMovieSearch={setMovieSearch}
       />
-      <MovieList movies={movieData} />
+      <MovieList
+        setIsClick={setIsClick}
+        setModalMovie={setModalMovie}
+        movies={movieData}
+      />
       <LoadMore pageNumber={pageNumber} setPageNumber={setPageNumber} />
-      <Modal />
+      {isClick === true && (
+        <Modal setIsClick={setIsClick} modalMovie={modalMovie} />
+      )}
     </div>
   );
 };

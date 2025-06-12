@@ -49,3 +49,38 @@
   display: flex;
   justify-content: center;
 }
+
+.modal-content {
+   background-color: #bfcfbb;
+   margin: auto; 
+   padding: 20px;
+   border-radius: 20px;
+   box-shadow: #f8f8f8;
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   -webkit-transform: translate(-50%, -50%);
+   width: 60%; /* Could be more or less, depending on screen size */ 
+   
+}
+
+.modal{
+   position: fixed; 
+   left: 0;
+   top: 0;
+   z-index: 1; /* Sit on top */
+   /* display: flex; */
+   justify-self: center;
+   align-items: center;
+   width: 100%; /* Full width */
+   height: 100%; /* Full height */
+   overflow: auto; /* Enable scroll if needed */
+   background-color: rgba(0, 0, 0, 0.8);
+  opacity: 1;
+  }
+.header{
+  display: flex;
+  /* justify-self: center; */
+  justify-content: space-around;
+}
