@@ -5,16 +5,16 @@ function Modal(props) {
   return (
     <div className="modal">
       <div className="modal-content">
-        <p>{props.modalMovie.title}</p>
+        <h1>{props.modalMovie.title}</h1>
         <img
           height="250px"
           width="200px"
           src={"https://image.tmdb.org/t/p/w500" + props.modalMovie.poster}
           alt="poster"
         />
-        <p>{props.modalMovie.date}</p>
-        <p>{props.modalMovie.overview}</p>
-        <p>{props.modalMovie.genre}</p>
+        <h3>{props.modalMovie.date}</h3>
+        <h4>{props.modalMovie.overview}</h4>
+        <h3>{props.modalMovie.genre}</h3>
         <p>{props.modalMovie.rating}</p>
         <button onClick={modalDisplay} className="close-modal">
           Close

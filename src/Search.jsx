@@ -1,11 +1,23 @@
-function Search({ searchMovie, setMovieSearch, nowPlaying }) {
+import { useEffect } from "react";
+import { useState } from "react";
+
+function Search({ searchMovie, setMovieSearch, nowPlaying, sortMovies }) {
   const handleSubmit = (event) => {
-    console.log("i see u");
     event.preventDefault();
     const submittedData = event.target.elements.movieInput.value;
     console.log(submittedData);
     setMovieSearch(submittedData);
   };
+  const [sortBy, setSortBy] = useState("");
+  const sort = (e) => {
+    console.log("Sort");
+    setSortBy(e.target.value);
+  };
+
+  useEffect(() => {
+    console.log(sortBy);
+    sortMovies(sortBy);
+  }, [sortBy]);
 
   return (
     <div className="header">
@@ -20,7 +32,7 @@ function Search({ searchMovie, setMovieSearch, nowPlaying }) {
       </div>
 
       <div>
-        <select name="sort" id="sort">
+        <select onChange={sort} value={sortBy} name="sort" id="sort">
           <option value="">Sort By:</option>
           <option value="AZ">Alphabetical(A-Z)</option>
           <option value="date">Date Released</option>

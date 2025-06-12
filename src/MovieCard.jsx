@@ -17,8 +17,8 @@ function MovieCard(props) {
   return (
     <div onClick={modalDisplay} className="card">
       <img
-        height="250px"
-        width="200px"
+        // height="250px"
+        width="180px"
         src={"https://image.tmdb.org/t/p/w500" + props.poster}
         alt="poster"
       />

@@ -17,9 +17,37 @@ const App = () => {
   const [isClick, setIsClick] = useState(false);
 
   const displayNowPlaying = () => {
+    console.log("you");
     setMovieData(now_playing);
   };
 
+  const sortMovies = (option) => {
+    const movies = movieData;
+    if (option === "AZ") {
+      console.log(option);
+      movies.sort((a, b) => a.title.localeCompare(b.title));
+      console.log(movies);
+      setMovieData(movies);
+    } else {
+      console.log("in");
+    }
+  };
+  // const sort = document.getElementById("sort");
+  // sort.addEventListener("change", ()=>{
+  //   if(sort.value === "AZ"){
+  //     playlists.sort((a,b) => a.playlist_name.localeCompare(b.playlist_name))
+  //     displayPlaylist()
+
+  // }else if(sort.value === "ZA"){
+  //   playlists.sort((a,b) => b.playlist_name.localeCompare(a.playlist_name))
+  //   displayPlaylist()
+  // }
+  // else if(sort.value == "likes"){
+  //   playlists.sort((a,b) => b.likes - a.likes)
+  //   displayPlaylist()
+  // }
+
+  // })
   let handleDataSubmit = async (newData) => {
     fetchMovieSearch();
     console.log(fetchMovieSearch());
@@ -69,12 +97,18 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header />
-      <Search
+      <Header
+        className="header-container"
         nowPlaying={displayNowPlaying}
         searchMovie={handleDataSubmit}
         setMovieSearch={setMovieSearch}
+        sortMovies={sortMovies}
       />
+      {/* <Search
+        nowPlaying={displayNowPlaying}
+        searchMovie={handleDataSubmit}
+        setMovieSearch={setMovieSearch}
+      /> */}
       <MovieList
         setIsClick={setIsClick}
         setModalMovie={setModalMovie}
