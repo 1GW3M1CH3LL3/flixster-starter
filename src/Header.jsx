@@ -1,7 +1,7 @@
 import Search from "./Search";
 function Header(props) {
   return (
-    <div className="header-container">
+    <header className="header-container">
       <h1 className="header-title">Flixter</h1>
       <Search
         nowPlaying={props.nowPlaying}
@@ -10,7 +10,7 @@ function Header(props) {
         sortMovies={props.sortMovies}
         movieSearch={props.movieSearch}
       />
-    </div>
+    </header>
   );
 }
 export default Header;

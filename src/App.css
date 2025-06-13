@@ -70,7 +70,15 @@
    -webkit-transform: translate(-50%, -50%);
    width: 60%; /* Could be more or less, depending on screen size */ 
    color: white;
+   overflow-y: auto;
    
+}
+footer{
+  background-color: #344c3d;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
 }
 
 .modal{
@@ -89,7 +97,6 @@
   }
 .header{
   display: flex;
-  /* justify-self: center; */
   justify-content: space-around;
 }
 .header-container{
@@ -116,13 +123,26 @@
   max-width: 100%;
   
 }
-
+.trailer{
+  width: 500px;
+  height: 300px;
+  /* width="500px";
+  height="300px"; */
+}
 
 
 @media (max-width: 600px) {
   .movie-list{
     justify-content: center;
   }
+  .trailer{
+  width: 200px;
+  height: 100px;
+  
+}
+.modal-content{
+  height: 90%;
+}
   .card {
     width: 100%;
   }

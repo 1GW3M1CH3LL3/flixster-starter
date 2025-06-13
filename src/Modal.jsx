@@ -50,7 +50,7 @@ function Modal(props) {
         <h3>{props.modalMovie.genre}</h3>
         <p>{props.modalMovie.rating}</p>
         <div>
-          <iframe src={trailerUrl}></iframe>
+          <iframe className="trailer" src={trailerUrl}></iframe>
         </div>
         <button onClick={modalDisplay} className="close-modal">
           Close

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import MovieCard from "./MovieCard";
 import MovieList from "./MovieList";
 import Search from "./Search";
 import Modal from "./Modal";
@@ -135,15 +134,30 @@ const App = () => {
         searchMovie={handleDataSubmit}
         setMovieSearch={setMovieSearch}
       /> */}
-      <MovieList
-        setIsClick={setIsClick}
-        setModalMovie={setModalMovie}
-        movies={movieData}
-      />
-      <LoadMore pageNumber={pageNumber} setPageNumber={setPageNumber} />
-      {isClick === true && (
-        <Modal setIsClick={setIsClick} modalMovie={modalMovie} />
-      )}
+      <main>
+        <MovieList
+          setIsClick={setIsClick}
+          setModalMovie={setModalMovie}
+          movies={movieData}
+        />
+        <LoadMore pageNumber={pageNumber} setPageNumber={setPageNumber} />
+        {isClick === true && (
+          <Modal setIsClick={setIsClick} modalMovie={modalMovie} />
+        )}
+      </main>
+      <footer>
+        <p>
+          Powered by{" "}
+          <a
+            href="https://www.themoviedb.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            TMDB
+          </a>
+        </p>
+        <p>© 2025 Flixter. All rights reserved.</p>
+      </footer>
     </div>
   );
 };
