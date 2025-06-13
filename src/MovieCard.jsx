@@ -1,13 +1,15 @@
 import { useState } from "react";
 
 function MovieCard(props) {
-  const [isLike, setIsLike] = useState(false);
-  const [isWatched, setIsWatched] = useState("Add To Watched");
+  const isWatched = props.watchedMovies[props.id] || false;
+  const isLiked = props.likedMovies[props.id] || false;
+  // const [isWatched, setIsWatched] = useState("Add To Watched");
   const handleWatchClick = (e) => {
     e.stopPropagation();
-    setIsWatched(
-      isWatched === "Add To Watched" ? "Watched!" : "Add To Watched"
-    );
+    props.setWatchedMovies((prev) => ({
+      ...prev,
+      [props.id]: !prev[props.id],
+    }));
   };
   const modalObject = {
     poster: props.poster,
@@ -20,7 +22,10 @@ function MovieCard(props) {
   const like = (e) => {
     e.stopPropagation();
 
-    setIsLike(!isLike);
+    props.setLikedMovies((prev) => ({
+      ...prev,
+      [props.id]: !prev[props.id],
+    }));
   };
   const modalDisplay = () => {
     props.setIsClick(true);
@@ -42,10 +47,10 @@ function MovieCard(props) {
 
       <i
         onClick={like}
-        className={`fa-solid fa-heart ${isLike ? "like" : ""}`}
+        className={`fa-solid fa-heart ${isLiked ? "like" : ""}`}
       ></i>
       <button onClick={handleWatchClick} className="add-to-watched">
-        {isWatched}
+        {isWatched ? "Watched!" : "Add to Watched"}
       </button>
     </div>
   );

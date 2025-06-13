@@ -24,6 +24,10 @@ function MovieList(props) {
             date={movie.release}
             overview={movie.overview}
             genre={movie.genre}
+            setLikedMovies={props.setLikedMovies}
+            likedMovies={props.likedMovies}
+            setWatchedMovies={props.setWatchedMovies}
+            watchedMovies={props.watchedMovies}
           />
         );
       })}

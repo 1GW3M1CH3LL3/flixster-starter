@@ -14,6 +14,8 @@ const App = () => {
   const [now_playing, setNow_playing] = useState([]);
   const [modalMovie, setModalMovie] = useState({});
   const [isClick, setIsClick] = useState(false);
+  const [likedMovies, setLikedMovies] = useState([]);
+  const [watchedMovies, setWatchedMovies] = useState([]);
 
   const displayNowPlaying = () => {
     setMovieData(now_playing);
@@ -102,6 +104,10 @@ const App = () => {
           setIsClick={setIsClick}
           setModalMovie={setModalMovie}
           movies={movieData}
+          setLikedMovies={setLikedMovies}
+          likedMovies={likedMovies}
+          setWatchedMovies={setWatchedMovies}
+          watchedMovies={watchedMovies}
         />
         <LoadMore pageNumber={pageNumber} setPageNumber={setPageNumber} />
         {isClick === true && (
