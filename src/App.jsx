@@ -17,7 +17,6 @@ const App = () => {
 
   const displayNowPlaying = () => {
     setMovieData(now_playing);
-    // setMovieSearch("");
   };
 
   const sortMovies = (option) => {
@@ -25,7 +24,6 @@ const App = () => {
     if (option === "AZ") {
       console.log(option);
       movies.sort((a, b) => a.title.localeCompare(b.title));
-      // console.log(movies);
       setMovieData(movies);
       console.log(movieData);
     } else if (option === "vote-highest") {
@@ -44,22 +42,7 @@ const App = () => {
       console.log(movieData);
     }
   };
-  // const sort = document.getElementById("sort");
-  // sort.addEventListener("change", ()=>{
-  //   if(sort.value === "AZ"){
-  //     playlists.sort((a,b) => a.playlist_name.localeCompare(b.playlist_name))
-  //     displayPlaylist()
 
-  // }else if(sort.value === "ZA"){
-  //   playlists.sort((a,b) => b.playlist_name.localeCompare(a.playlist_name))
-  //   displayPlaylist()
-  // }
-  // else if(sort.value == "likes"){
-  //   playlists.sort((a,b) => b.likes - a.likes)
-  //   displayPlaylist()
-  // }
-
-  // })
   let handleDataSubmit = async (newData) => {
     fetchMovieSearch();
     console.log(fetchMovieSearch());
@@ -73,17 +56,6 @@ const App = () => {
   }, [movieSearch]);
   useEffect(() => {
     fetchMovieData();
-    // fetchTrailer(552524);
-
-    //   async function fetchMovieData() {
-    //   const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&query=${encodeURIComponent(searchInput)}`
-    //   const response = await fetch(url)
-    //   const data = await response.json()
-    //   console.log(data)
-    //   console.log(response)
-    // }
-    // let results = fetchMovieData()
-    // setMovieData(results)
   }, [pageNumber]);
 
   async function fetchMovieSearch() {
@@ -105,14 +77,9 @@ const App = () => {
     const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=${pageNumber}`;
     const response = await fetch(url);
     const data = await response.json();
-    // console.log('b4', movieData)
+
     setMovieData(movieData.concat(data.results));
     setNow_playing(data.results);
-    // setMovieData(movieData.concat(data));
-
-    // setMovieData((prev) => {
-    // console.log('inside', prev)
-    // return  prev.concat(data)});
   }
 
   useEffect(() => {
@@ -129,11 +96,7 @@ const App = () => {
         sortMovies={sortMovies}
         movieSearch={movieSearch}
       />
-      {/* <Search
-        nowPlaying={displayNowPlaying}
-        searchMovie={handleDataSubmit}
-        setMovieSearch={setMovieSearch}
-      /> */}
+
       <main>
         <MovieList
           setIsClick={setIsClick}

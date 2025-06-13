@@ -11,21 +11,18 @@ function Search({
   const handleSubmit = (event) => {
     event.preventDefault();
     const submittedData = event.target.elements.movieInput.value;
-    console.log(submittedData);
+
     setMovieSearch(submittedData);
   };
   const clear = (event) => {
-    // nowPlaying();
     setMovieSearch("");
   };
   const [sortBy, setSortBy] = useState("");
   const sort = (e) => {
-    console.log("Sort");
     setSortBy(e.target.value);
   };
 
   useEffect(() => {
-    console.log(sortBy);
     sortMovies(sortBy);
   }, [sortBy]);
 

@@ -24,14 +24,12 @@ function Modal(props) {
 
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data);
     setTrailerUrl("https://www.youtube.com/embed/" + data["results"][0].key);
   }
   async function fetchAdditionalDetails(movieId) {
     const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`;
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data.runtime);
     setRunTime(data.runtime);
   }
   return (
