@@ -60,7 +60,7 @@ const App = () => {
 
   async function fetchMovieSearch() {
     console.log(movieSearch);
-    const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${movieSearch}&page=${pageNumber};`;
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${movieSearch};`;
     const response = await fetch(url);
     const data = await response.json();
     setMovieData(data.results);
@@ -79,7 +79,7 @@ const App = () => {
     const data = await response.json();
 
     setMovieData(movieData.concat(data.results));
-    setNow_playing(data.results);
+    setNow_playing(now_playing.concat(data.results));
   }
 
   useEffect(() => {
