@@ -6,7 +6,7 @@ Submitted by: Adaora Michelle Igwe
 
 Estimated time spent: 20 hours
 
-Deployed Application (**required**): [Flixster Deployed Site](`https://flixster-starter-4kby.onrender.com`)
+Deployed Application (**required**): [Flixster Deployed Site](https://flixster-starter-4kby.onrender.com)
 
 ### Application Features
 
@@ -103,7 +103,14 @@ Deployed Application (**required**): [Flixster Deployed Site](`https://flixster-
 
 [Video Walkthrough]
 
-`https://www.loom.com/share/760e64ecb6fa439a9fa545db09ae5a28?sid=ee018974-ce7a-43ba-b85b-874a290e3a31`
+<div>
+    <a href="https://www.loom.com/share/760e64ecb6fa439a9fa545db09ae5a28">
+      <p>Videos | Library | Loom - 13 June 2025 - Watch Video</p>
+    </a>
+    <a href="https://www.loom.com/share/760e64ecb6fa439a9fa545db09ae5a28">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/760e64ecb6fa439a9fa545db09ae5a28-a327a29f8a713b56-full-play.gif">
+    </a>
+  </div>
 
 ### Reflection
 

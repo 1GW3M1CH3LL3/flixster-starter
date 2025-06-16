@@ -3,7 +3,6 @@ import { useState } from "react";
 function MovieCard(props) {
   const isWatched = props.watchedMovies[props.id] || false;
   const isLiked = props.likedMovies[props.id] || false;
-  // const [isWatched, setIsWatched] = useState("Add To Watched");
   const handleWatchClick = (e) => {
     e.stopPropagation();
     props.setWatchedMovies((prev) => ({
